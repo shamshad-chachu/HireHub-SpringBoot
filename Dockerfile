@@ -1,22 +1,19 @@
-# Start with a base image with the JDK
+
+# -------- Stage 1: Build with Maven --------
+FROM maven:3.8.5-openjdk-17 AS build
+
+WORKDIR /app
+COPY . .
+
+RUN mvn clean package -DskipTests
+
+# -------- Stage 2: Run with Java --------
 FROM openjdk:17-jdk-slim
 
-# Set the working directory inside the container
 WORKDIR /app
 
-# Copy the pom.xml file to download dependencies
-COPY pom.xml .
+COPY --from=build /app/target/JobSerach-0.0.1-SNAPSHOT.jar JobSerach-0.0.1-SNAPSHOT.jar
 
-# Copy the rest of the source code
-COPY src ./src
-
-# Use Maven to build the application and create the executable JAR file
-# '-Dmaven.test.skip=true' skips tests to speed up the build process
-RUN ./mvnw clean package -Dmaven.test.skip=true
-
-# Expose the port on which the Spring Boot application will run (e.g., 8080)
 EXPOSE 8080
 
-# Set the entry point to run the JAR file
-# Replace 'HireHub-SpringBoot-0.0.1-SNAPSHOT.jar' with your actual JAR file name
-ENTRYPOINT ["java", "-jar", "target/JobSerach-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "JobSerach-0.0.1-SNAPSHOT.jar"]
