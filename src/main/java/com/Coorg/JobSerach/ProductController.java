@@ -28,17 +28,23 @@ public class ProductController {
 		return "wilcom to Backend";
 	}
 	
-	@GetMapping("/findAll")
-	public List<Product> FindAll() {
-		
-		return service.findAll();		
-	}
-	
 //	@GetMapping("/findAll")
-//	public String FindAll() {
+//	public List<Product> FindAll() {
 //		
-//		return "accessed backend";		
+//		return service.findAll();		
 //	}
+	
+	@GetMapping("/findAll")
+	public ResponseEntity<?> FindAll() {
+		
+		try {
+			List<Product> Products = service.findAll();	
+			return ResponseEntity.ok(Products);
+		}
+		catch(Exception e) {
+			return ResponseEntity.internalServerError().body(Map.of("error",e.getMessage()));
+		}
+	}
 	
 	@PostMapping("/employee")
 	public ResponseEntity<?> newData(@RequestBody Product data) {
