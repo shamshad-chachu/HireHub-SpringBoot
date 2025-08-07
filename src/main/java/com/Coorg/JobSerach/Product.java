@@ -10,6 +10,10 @@ import jakarta.persistence.Entity;
 @Component
 @Scope("prototype")
 public class Product {
+	public Product() {
+		
+		// TODO Auto-generated constructor stub
+	}
 	@jakarta.persistence.Id
 	private int id;
 	private String title;

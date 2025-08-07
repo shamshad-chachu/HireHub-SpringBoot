@@ -28,17 +28,17 @@ public class ProductController {
 		return "wilcom to Backend";
 	}
 	
-//	@GetMapping("/findAll")
-//	public List<Product> FindAll() {
-//		
-//		return service.findAll();		
-//	}
-	
 	@GetMapping("/findAll")
-	public String FindAll() {
+	public List<Product> FindAll() {
 		
-		return "accessed backend";		
+		return service.findAll();		
 	}
+	
+//	@GetMapping("/findAll")
+//	public String FindAll() {
+//		
+//		return "accessed backend";		
+//	}
 	
 	@PostMapping("/employee")
 	public ResponseEntity<?> newData(@RequestBody Product data) {
