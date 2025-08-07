@@ -25,7 +25,7 @@ public class ProductController {
 	@GetMapping("/")
 	public  String getMethodName() {
 		System.out.println("success");
-		return "wilcom to Backend";
+		return "wilcom to Backend everyone";
 	}
 	
 //	@GetMapping("/findAll")
@@ -39,6 +39,7 @@ public class ProductController {
 		
 		try {
 			List<Product> Products = service.findAll();	
+			System.out.println(Products);
 			return ResponseEntity.ok(Products);
 		}
 		catch(Exception e) {

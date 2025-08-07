@@ -30,6 +30,7 @@ public class ProductService {
 	}
 	
 	public List<Product> findAll(){
+		System.out.println("hi");
 		return repo.findAll();
 		
 	}
