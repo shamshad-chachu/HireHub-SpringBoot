@@ -4,7 +4,10 @@ package com.Coorg.JobSerach;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import jakarta.annotation.Generated;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 
 @Entity
 @Component
@@ -15,6 +18,7 @@ public class Product {
 		// TODO Auto-generated constructor stub
 	}
 	@jakarta.persistence.Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String title;
 	private String loc;
