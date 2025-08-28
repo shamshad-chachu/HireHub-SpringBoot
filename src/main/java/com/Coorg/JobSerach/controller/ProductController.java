@@ -1,26 +1,33 @@
-package com.Coorg.JobSerach;
+package com.Coorg.JobSerach.controller;
 
 
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins = "*")
+import com.Coorg.JobSerach.Model.Product;
+import com.Coorg.JobSerach.Service.ProductService;
+
 @RestController()
+@CrossOrigin
+@RequestMapping("/Job")
 public class ProductController {
-	@Autowired
+	
 	ProductService service;
 	
+
+	public ProductController(ProductService service) {
+		super();
+		this.service = service;
+	}
 
 	@GetMapping("/")
 	public  String getMethodName() {
@@ -47,7 +54,7 @@ public class ProductController {
 		}
 	}
 	
-	@PostMapping("/employee")
+	@PostMapping("/JobPost")
 	public ResponseEntity<?> newData(@RequestBody Product data) {
 		
 		System.out.println(data);

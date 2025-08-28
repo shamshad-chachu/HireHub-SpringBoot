@@ -1,4 +1,4 @@
-package com.Coorg.JobSerach;
+package com.Coorg.JobSerach.Service;
 
 
 import java.util.List;
@@ -7,13 +7,21 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.Coorg.JobSerach.Model.Product;
+import com.Coorg.JobSerach.Repo.ProductRepo;
+
 @Service
 public class ProductService {
 	
-	@Autowired
 	ProductRepo repo;
-	@Autowired
-	Product p ;
+	
+	public ProductService(ProductRepo repo) {
+		super();
+		this.repo = repo;
+	}
+
+	
+	
 	
 	
 	public void save(Product data) {

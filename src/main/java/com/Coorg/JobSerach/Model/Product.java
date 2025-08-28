@@ -1,4 +1,4 @@
-package com.Coorg.JobSerach;
+package com.Coorg.JobSerach.Model;
 
 
 import org.springframework.context.annotation.Scope;
@@ -8,22 +8,33 @@ import jakarta.annotation.Generated;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
-@Component
-@Scope("prototype")
 public class Product {
-	public Product() {
-		
-		// TODO Auto-generated constructor stub
-	}
-	@jakarta.persistence.Id
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String title;
 	private String loc;
 	private int exp;
 	private String des;
+	
+	
+	
+	public Product() {
+		super();
+	}
+	
+	public Product(int id, String title, String loc, int exp, String des) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.loc = loc;
+		this.exp = exp;
+		this.des = des;
+	}
+
 	
 	
 	public int getId() {
