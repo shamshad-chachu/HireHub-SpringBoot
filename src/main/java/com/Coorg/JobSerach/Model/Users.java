@@ -1,6 +1,6 @@
 package com.Coorg.JobSerach.Model;
 
-import jakarta.annotation.Generated;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,7 +13,7 @@ public class Users {
 	private int id;
 	private String email;
 	private String uname;
-	private long pass;
+	private String pass;
 	
 	
 	
@@ -21,7 +21,7 @@ public class Users {
 	public Users() {
 		super();
 	}
-	public Users(int id, String uname, long pass,String email) {
+	public Users(int id, String uname, String pass,String email) {
 		super();
 		this.id = id;
 		this.uname = uname;
@@ -48,10 +48,10 @@ public class Users {
 	public void setUname(String uname) {
 		this.uname = uname;
 	}
-	public long getPass() {
+	public String getPass() {
 		return pass;
 	}
-	public void setPass(long pass) {
+	public void setPass(String pass) {
 		this.pass = pass;
 	}
 	@Override

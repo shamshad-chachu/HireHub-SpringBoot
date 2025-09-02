@@ -7,4 +7,6 @@ import com.Coorg.JobSerach.Model.Users;
 
 public interface UserRepo extends JpaRepository<Users,Integer> {
 
+	Users findUserByUnameOrEmail(String Uname, String Email);
+
 }

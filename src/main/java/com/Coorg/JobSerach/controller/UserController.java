@@ -2,8 +2,7 @@ package com.Coorg.JobSerach.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,9 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Coorg.JobSerach.Model.Users;
+import com.Coorg.JobSerach.Model.Login.*;
 import com.Coorg.JobSerach.Service.UserService;
 
-import jakarta.websocket.server.PathParam;
+
 
 @RestController
 @CrossOrigin
@@ -39,13 +39,23 @@ public class UserController {
 		return "hello user";
 	}
 	
+	
+	@PostMapping("/Login")
+	public ResponseEntity<?> Login(@RequestBody Login user){
+		
+//		System.out.println(user);
+		
+		return serv.login(user);
+		
+	}
+	
 	@GetMapping("/GetAll")
 	public List<Users> getAll(){
 		
 		return serv.getAll();
 	}
 	
-	@PostMapping("/Add")
+	@PostMapping("/Register")
 	
 	public void AddUser(@RequestBody Users user) {
 		
