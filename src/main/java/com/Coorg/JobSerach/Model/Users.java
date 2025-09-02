@@ -11,6 +11,7 @@ public class Users {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	private String email;
 	private String uname;
 	private long pass;
 	
@@ -20,14 +21,21 @@ public class Users {
 	public Users() {
 		super();
 	}
-	public Users(int id, String uname, long pass) {
+	public Users(int id, String uname, long pass,String email) {
 		super();
 		this.id = id;
 		this.uname = uname;
 		this.pass = pass;
+		this.email = email;
 	}
 	
 	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public int getId() {
 		return id;
 	}
@@ -48,8 +56,10 @@ public class Users {
 	}
 	@Override
 	public String toString() {
-		return "Users [id=" + id + ", uname=" + uname + ", pass=" + pass + "]";
+		return "Users [id=" + id + ", email=" + email + ", uname=" + uname + ", pass=" + pass + "]";
 	}
+	
+	
 	
 
 }

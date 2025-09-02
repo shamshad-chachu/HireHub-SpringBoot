@@ -48,6 +48,7 @@ public class UserService {
 		Users existingUser = repo.findById(userId).orElse(new Users());
 		existingUser.setUname(user.getUname());
 		existingUser.setPass(user.getPass());
+		existingUser.setEmail(user.getEmail());
 		
 		repo.save(existingUser);
 		

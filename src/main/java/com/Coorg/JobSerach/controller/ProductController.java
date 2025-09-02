@@ -7,7 +7,9 @@ import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -63,6 +65,11 @@ public class ProductController {
 		
 		return ResponseEntity.ok().body(Map.of("message:","Form submitted successfull"));
 			
+	}
+	
+	@DeleteMapping("/delete/{job_id}")
+	public void deleteJob(@PathVariable int job_id) {
+		service.deleteJob(job_id);
 	}
 	
 	

@@ -42,4 +42,10 @@ public class ProductService {
 		return repo.findAll();
 		
 	}
+	
+	public void deleteJob(int job_id) {
+		// TODO Auto-generated method stub
+		repo.deleteById(job_id);
+		
+	}
 }
