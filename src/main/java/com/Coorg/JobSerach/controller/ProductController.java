@@ -59,7 +59,7 @@ public class ProductController {
 	@PostMapping("/JobPost")
 	public ResponseEntity<?> newData(@RequestBody Product data) {
 		
-		System.out.println(data);
+//		System.out.println(data);
 
 		service.save(data);
 		

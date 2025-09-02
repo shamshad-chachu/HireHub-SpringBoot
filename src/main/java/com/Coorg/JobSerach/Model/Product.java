@@ -4,6 +4,8 @@ package com.Coorg.JobSerach.Model;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,11 +18,14 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private int experience;
+	@JsonProperty("openings")
 	private int No_openings;
 	private String title;
+	@JsonProperty("companyName")
 	private String Company_name;
 	private String location;
 	@Column(name = "des", length = 500)
+	@JsonProperty("description")
 	private String des;
 	
 	
